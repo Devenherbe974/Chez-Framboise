@@ -1,52 +1,52 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Chez Framboise — chambre d'hôtes nichée dans la forêt tropicale de l'est réunionnais, à Salazie." />
-  <title>Chez Framboise · Chambre d'hôtes à Salazie, La Réunion</title>
-
-  <!-- Typographies système (pas de dépendance externe) -->
-  <!-- Cormorant Garamond / Inter peuvent être ajoutées en auto-hébergement pour la production -->
+  <meta name="description" content="Chez Framboise — chambre d'hôtes à Salazie, La Réunion. À quatre kilomètres du Cirque." />
+  <title>Chez Framboise · Salazie, La Réunion</title>
 
   <style>
   /* =========================================================
-     Chez Framboise — feuille de style intégrée
-     Mobile-first · variables CSS · grilles asymétriques · reveal
+     Chez Framboise — V2
+     Refonte texte + visuel, signature discrète (tricolore
+     encodé dans la palette, mark Ravinala dans le logo).
      ========================================================= */
 
-  /* ---------- 1. Tokens ---------- */
+  /* ---------- Tokens ---------- */
   :root {
     --cream:     #FAF7F2;
+    --ivoire:    #F0E6D6;  /* "blanc" doux — premier ton du tricolore */
     --sand:      #E8DFD0;
     --ink:       #1A2420;
-    --forest:    #2D4A3E;
+    --forest:    #2D4A3E;  /* "vert" du tricolore */
     --moss:      #5A7361;
     --bark:      #8A8479;
     --emerald:   #3FA66B;
-    --framboise: #C0395B;
+    --framboise: #C0395B;  /* "rouge" du tricolore */
     --coral:     #E87356;
 
     --ff-serif: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, 'Times New Roman', serif;
     --ff-sans:  system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
-    --fs-xs: .78rem;
-    --fs-sm: .92rem;
+    --fs-xs:   .78rem;
+    --fs-sm:   .92rem;
     --fs-base: 1rem;
-    --fs-md: 1.15rem;
-    --fs-lg: 1.5rem;
-    --fs-xl: clamp(2rem, 4vw + 1rem, 3.4rem);
-    --fs-hero: clamp(2.6rem, 6vw + 1rem, 5.5rem);
+    --fs-md:   1.15rem;
+    --fs-lg:   1.5rem;
+    --fs-xl:   clamp(2rem, 4vw + 1rem, 3.4rem);
+    --fs-hero: clamp(2.8rem, 7vw + 1rem, 6rem);
+    --fs-editorial: clamp(1.4rem, 1.6vw + 1rem, 2rem);
 
-    --gutter: clamp(20px, 4vw, 48px);
-    --section-y: clamp(72px, 10vw, 140px);
-    --radius-sm: 4px;
+    --gutter:    clamp(20px, 4vw, 48px);
+    --section-y: clamp(80px, 10vw, 140px);
+
     --radius-md: 10px;
     --radius-lg: 24px;
     --ease: cubic-bezier(.2,.7,.2,1);
   }
 
-  /* ---------- 2. Reset ciblé ---------- */
+  /* ---------- Reset ---------- */
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
@@ -60,54 +60,46 @@
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
-  img, svg, iframe { display: block; max-width: 100%; }
+  img, svg { display: block; max-width: 100%; }
   img { height: auto; }
   a { color: inherit; text-decoration: none; }
   ul { list-style: none; padding: 0; margin: 0; }
   button { font: inherit; cursor: pointer; }
   :focus-visible { outline: 2px solid var(--framboise); outline-offset: 3px; border-radius: 2px; }
-
-  /* ---------- 3. Typographie ---------- */
-  .title-display {
-    font-family: var(--ff-serif);
-    font-weight: 500;
-    font-size: var(--fs-xl);
-    line-height: 1.1;
-    letter-spacing: -.01em;
-    color: var(--ink);
-    margin: 0 0 24px;
-  }
-  .title-display em { font-style: italic; color: var(--framboise); font-weight: 400; }
   p { margin: 0 0 1em; color: var(--moss); }
   p strong { color: var(--forest); font-weight: 500; }
-  .eyebrow {
-    font-family: var(--ff-sans);
-    font-size: var(--fs-xs);
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--framboise);
-    font-weight: 500;
-    margin: 0 0 18px;
-    display: inline-flex; align-items: center;
-  }
-  .eyebrow::before {
-    content: ''; display: inline-block;
-    width: 28px; height: 1px;
-    background: currentColor; margin-right: 12px; opacity: .7;
-  }
-  .eyebrow--light { color: rgba(255,255,255,.85); }
-  .accent { color: var(--framboise); font-style: italic; }
 
-  /* ---------- 4. Conteneur ---------- */
-  .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--gutter); }
+  /* ---------- Container ---------- */
+  .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
+  .container--narrow { max-width: 820px; }
 
-  /* ---------- 5. Boutons ---------- */
+  /* ---------- Tricolore (signature discrète) ----------
+     Trois traits, dans les tons cream / framboise / forest.
+     Encode l'origine sans la nommer. */
+  .mg-line {
+    display: inline-flex; gap: 4px;
+    margin: 0;
+  }
+  .mg-line span {
+    display: block;
+    width: 16px; height: 2px;
+    background: var(--ivoire);
+    border-radius: 1px;
+  }
+  .mg-line span:nth-child(2) { background: var(--framboise); }
+  .mg-line span:nth-child(3) { background: var(--forest); }
+  .mg-line--lg span { width: 28px; height: 3px; }
+  .mg-line--light span:nth-child(1) { background: rgba(250,247,242,.6); }
+  .mg-line--light span:nth-child(2) { background: var(--framboise); }
+  .mg-line--light span:nth-child(3) { background: var(--emerald); }
+
+  /* ---------- Boutons ---------- */
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 28px;
+    padding: 14px 26px;
     font-size: var(--fs-sm);
     font-weight: 500;
-    letter-spacing: .04em;
+    letter-spacing: .03em;
     border-radius: 999px;
     transition: transform .25s var(--ease), background .25s var(--ease),
                 color .25s var(--ease), border-color .25s var(--ease),
@@ -118,13 +110,13 @@
   .btn--solid { background: var(--ink); color: var(--cream); border-color: var(--ink); }
   .btn--solid:hover { background: var(--forest); border-color: var(--forest); transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgba(26,36,32,.4); }
   .btn--accent { background: var(--framboise); border-color: var(--framboise); color: var(--cream); }
-  .btn--accent:hover { background: #a82e4d; border-color: #a82e4d; box-shadow: 0 10px 24px -12px rgba(192,57,91,.5); }
+  .btn--accent:hover { background: #a82e4d; border-color: #a82e4d; box-shadow: 0 10px 24px -12px rgba(192,57,91,.5); transform: translateY(-2px); }
   .btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
   .btn--ghost:hover { background: var(--ink); color: var(--cream); }
-  .btn--text { padding: 14px 4px; color: var(--cream); background: transparent; border-radius: 0; border-bottom: 1px solid rgba(250,247,242,.4); }
-  .btn--text:hover { border-bottom-color: var(--cream); }
+  .btn--light { color: var(--cream); border-color: rgba(250,247,242,.6); }
+  .btn--light:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
 
-  /* ---------- 6. Header / Nav ---------- */
+  /* ---------- Header ---------- */
   .site-header {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -133,17 +125,17 @@
     color: var(--cream);
   }
   .site-header.is-scrolled {
-    background: rgba(250,247,242,.92);
+    background: rgba(250,247,242,.94);
     -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
     box-shadow: 0 1px 0 rgba(26,36,32,.06);
     color: var(--ink);
     padding-top: 12px; padding-bottom: 12px;
   }
-  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--ff-serif); font-size: 1.5rem; color: inherit; }
-  .brand__mark { width: 28px; height: 28px; color: var(--framboise); flex: none; }
-  .brand__name { font-weight: 500; }
-  .nav { display: flex; align-items: center; gap: 36px; }
-  .nav__list { display: flex; gap: 28px; font-size: var(--fs-sm); }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--ff-serif); font-size: 1.45rem; color: inherit; }
+  .brand__mark { width: 30px; height: 30px; color: currentColor; flex: none; }
+  .brand__name { font-weight: 500; line-height: 1; }
+  .nav { display: flex; align-items: center; gap: 32px; }
+  .nav__list { display: flex; gap: 26px; font-size: var(--fs-sm); }
   .nav__list a { position: relative; padding: 6px 0; color: inherit; transition: color .2s var(--ease); }
   .nav__list a::after {
     content: ''; position: absolute; left: 0; right: 0; bottom: 0;
@@ -153,9 +145,9 @@
   }
   .nav__list a:hover { color: var(--framboise); }
   .nav__list a:hover::after { transform: scaleX(1); background: var(--framboise); }
-  .nav__cta { padding: 10px 22px; font-size: var(--fs-sm); }
   .site-header:not(.is-scrolled) .nav__cta { color: var(--cream); border-color: rgba(250,247,242,.6); }
   .site-header:not(.is-scrolled) .nav__cta:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+  .nav__cta { padding: 10px 22px; font-size: var(--fs-sm); }
 
   /* Burger */
   .burger {
@@ -168,7 +160,6 @@
   .burger.is-open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
   .burger.is-open span:nth-child(2) { opacity: 0; }
   .burger.is-open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-
   .mobile-menu {
     position: fixed; inset: 0; z-index: 90;
     background: var(--cream);
@@ -178,115 +169,114 @@
   }
   .mobile-menu.is-open { opacity: 1; pointer-events: auto; }
   .mobile-menu ul {
-    display: flex; flex-direction: column; gap: 28px;
-    text-align: center; font-family: var(--ff-serif); font-size: 2rem; color: var(--ink);
+    display: flex; flex-direction: column; gap: 24px;
+    text-align: center; font-family: var(--ff-serif); font-size: 1.8rem; color: var(--ink);
   }
   .mobile-menu a:hover { color: var(--framboise); }
 
-  /* ---------- 7. Hero ---------- */
+  /* ---------- Hero (pas de vague, titre engagé) ---------- */
   .hero {
     position: relative;
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 140px var(--gutter) 100px;
+    min-height: 92vh;
+    display: flex; align-items: flex-end;
+    padding: 140px var(--gutter) 80px;
     color: var(--cream);
     overflow: hidden;
-    background: var(--forest); /* couleur de secours si l'image ne charge pas */
+    background: var(--forest);
   }
   .hero__media { position: absolute; inset: 0; z-index: 0; }
   .hero__media img {
     width: 100%; height: 100%; object-fit: cover;
-    transform: scale(1.05);
-    transition: transform 8s var(--ease);
+    transform: scale(1.04);
+    transition: transform 6s var(--ease);
   }
   .hero.is-ready .hero__media img { transform: scale(1); }
   .hero__veil {
     position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(26,36,32,.35) 0%, rgba(26,36,32,.55) 60%, rgba(26,36,32,.7) 100%),
-      radial-gradient(80% 60% at 30% 30%, rgba(45,74,62,.2), transparent 70%);
+    background: linear-gradient(180deg, rgba(26,36,32,.0) 0%, rgba(26,36,32,.15) 40%, rgba(26,36,32,.7) 100%);
   }
-  .hero__content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; text-align: center; }
+  .hero__content { position: relative; z-index: 1; max-width: 900px; }
   .hero__title {
     font-family: var(--ff-serif);
     font-size: var(--fs-hero);
     font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -.015em;
+    line-height: .98;
+    letter-spacing: -.02em;
     margin: 0 0 24px;
   }
-  .hero__title em { font-style: italic; color: var(--emerald); }
-  .hero__lead { font-size: var(--fs-md); font-weight: 300; color: rgba(250,247,242,.92); max-width: 540px; margin: 0 auto 36px; line-height: 1.7; }
-  .hero__cta { display: inline-flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
-  .hero__wave {
-    position: absolute; left: 0; right: 0; bottom: -1px;
-    width: 100%; height: clamp(50px, 7vw, 90px);
-    z-index: 2;
+  .hero__sub {
+    font-size: var(--fs-md);
+    font-weight: 300;
+    color: rgba(250,247,242,.92);
+    max-width: 540px;
+    margin: 0 0 32px;
+    line-height: 1.55;
   }
+  .hero__cta { display: inline-flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 
-  /* ---------- 8. Lieu ---------- */
-  .lieu { padding: var(--section-y) 0; }
-  .lieu__grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; }
-  .lieu__media { position: relative; margin: 0; }
-  .lieu__media img {
-    width: 100%;
+  /* ---------- Section éditoriale (casse le pattern) ---------- */
+  .editorial {
+    padding: clamp(70px, 9vw, 110px) 0 clamp(40px, 5vw, 60px);
+    background: var(--cream);
+  }
+  .editorial p {
+    font-family: var(--ff-serif);
+    font-size: var(--fs-editorial);
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0;
+  }
+  .editorial p + p { margin-top: 28px; }
+  .editorial .accent { color: var(--framboise); font-style: italic; }
+
+  /* ---------- Le lieu (layout asymétrique : photo en haut, texte 2 colonnes) ---------- */
+  .lieu { padding: clamp(40px, 5vw, 60px) 0 var(--section-y); }
+  .lieu__photo {
+    margin: 0 0 60px;
     border-radius: var(--radius-lg);
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    box-shadow: 0 30px 60px -30px rgba(26,36,32,.3);
+    overflow: hidden;
+    box-shadow: 0 40px 80px -40px rgba(26,36,32,.4);
   }
-  .leaf-deco {
-    position: absolute;
-    width: 180px; height: 280px;
-    color: var(--emerald);
-    opacity: .18;
-    pointer-events: none;
-    animation: float 9s var(--ease) infinite;
+  .lieu__photo img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .lieu__cols { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  .lieu__title {
+    font-family: var(--ff-serif);
+    font-size: var(--fs-xl);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 500;
   }
-  .leaf-deco--1 { top: -50px; right: -50px; transform: rotate(20deg); }
-  @keyframes float {
-    0%, 100% { transform: rotate(20deg) translateY(0); }
-    50%      { transform: rotate(24deg) translateY(-12px); }
-  }
-
-  .stats {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 12px; margin-top: 40px; padding-top: 32px;
+  .lieu__title em { font-style: italic; color: var(--framboise); font-weight: 400; }
+  .lieu__body p { color: var(--moss); font-size: 1.02rem; }
+  .lieu__facts {
+    list-style: none; padding: 0; margin: 28px 0 0;
+    display: grid; grid-template-columns: 1fr;
+    gap: 14px;
     border-top: 1px solid var(--sand);
+    padding-top: 24px;
   }
-  .stats li { display: flex; flex-direction: column; gap: 4px; }
-  .stats__num { font-family: var(--ff-serif); font-size: 2.4rem; font-weight: 500; color: var(--framboise); line-height: 1; }
-  .stats__num span { font-size: 1rem; color: var(--bark); font-family: var(--ff-sans); font-weight: 400; margin-left: 2px; }
-  .stats__lbl { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .12em; color: var(--bark); }
+  .lieu__facts li {
+    display: grid; grid-template-columns: 90px 1fr; gap: 18px;
+    align-items: baseline; font-size: var(--fs-sm);
+  }
+  .lieu__facts dt { color: var(--bark); font-size: var(--fs-xs); letter-spacing: .15em; text-transform: uppercase; }
+  .lieu__facts dd { margin: 0; color: var(--ink); }
+  .lieu__facts strong { color: var(--framboise); font-family: var(--ff-serif); font-size: 1.3rem; font-weight: 500; }
 
-  /* ---------- 9. Hôtes ---------- */
-  .hotes {
-    padding: var(--section-y) 0;
-    background: linear-gradient(180deg, transparent 0%, var(--sand) 50%, transparent 100%);
+  /* ---------- Galerie (plus grande, plus respirante) ---------- */
+  .galerie { padding: var(--section-y) 0; background: var(--cream); }
+  .galerie__head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 24px; margin-bottom: 40px; flex-wrap: wrap;
   }
-  .hotes__grid { display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; }
-  .hotes__media { margin: 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 30px 60px -30px rgba(26,36,32,.35); }
-  .hotes__media img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform 1.2s var(--ease); }
-  .hotes__media:hover img { transform: scale(1.04); }
-  .quote {
-    margin: 32px 0 0; padding: 24px 28px;
-    border-left: 2px solid var(--framboise);
-    background: rgba(250,247,242,.6);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    font-family: var(--ff-serif); font-style: italic;
-    font-size: 1.15rem; line-height: 1.6; color: var(--forest);
+  .galerie__title {
+    font-family: var(--ff-serif); font-size: var(--fs-xl);
+    margin: 0; font-weight: 500; line-height: 1; color: var(--ink);
   }
-  .quote cite {
-    display: block; margin-top: 12px; font-style: normal;
-    font-family: var(--ff-sans); font-size: var(--fs-xs);
-    letter-spacing: .12em; text-transform: uppercase; color: var(--bark);
-  }
-
-  /* ---------- 10. Galerie ---------- */
-  .galerie { padding: var(--section-y) 0; }
-  .section-head { text-align: center; margin-bottom: 60px; }
-  .section-head .eyebrow { justify-content: center; }
-  .section-head__lead { color: var(--bark); font-size: var(--fs-sm); }
+  .galerie__title em { font-style: italic; color: var(--framboise); font-weight: 400; }
+  .galerie__hint { color: var(--bark); font-size: var(--fs-sm); margin: 0; }
   .gallery { display: grid; grid-template-columns: 1fr; gap: 14px; }
   .gallery__item {
     position: relative; margin: 0; overflow: hidden;
@@ -296,52 +286,74 @@
   .gallery__item img {
     width: 100%; height: 100%; object-fit: cover;
     aspect-ratio: 4/3;
-    transition: transform 1s var(--ease), filter .6s var(--ease);
+    transition: transform 1s var(--ease);
   }
-  .gallery__item figcaption {
-    position: absolute; left: 16px; bottom: 14px;
-    color: var(--cream);
-    font-size: var(--fs-xs); letter-spacing: .15em; text-transform: uppercase;
-    background: rgba(26,36,32,.55);
-    padding: 6px 12px; border-radius: 999px;
-    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-    opacity: 0; transform: translateY(8px);
-    transition: opacity .35s var(--ease), transform .35s var(--ease);
-  }
-  .gallery__item:hover img { transform: scale(1.05); }
-  .gallery__item:hover figcaption { opacity: 1; transform: translateY(0); }
+  .gallery__item:hover img { transform: scale(1.04); }
 
-  /* ---------- 11. Services ---------- */
-  .services {
+  /* ---------- Petit-déjeuner (section dédiée, posée) ---------- */
+  .pdj {
     padding: var(--section-y) 0;
-    background:
-      radial-gradient(60% 80% at 100% 0%, rgba(63,166,107,.06), transparent 60%),
-      radial-gradient(60% 80% at 0% 100%, rgba(192,57,91,.05), transparent 60%),
-      var(--cream);
+    background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
   }
-  .services__grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-  .service {
-    padding: 28px 24px;
-    background: rgba(255,255,255,.6);
-    border: 1px solid var(--sand);
-    border-radius: var(--radius-md);
-    transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+  .pdj__inner {
+    display: grid; grid-template-columns: 1fr; gap: 50px;
+    align-items: center;
   }
-  .service:hover {
-    transform: translateY(-3px);
-    border-color: var(--emerald);
-    background: #fff;
-    box-shadow: 0 18px 40px -22px rgba(26,36,32,.2);
+  .pdj__media {
+    margin: 0; border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(26,36,32,.35);
   }
-  .service svg { width: 32px; height: 32px; color: var(--forest); margin-bottom: 16px; transition: color .35s var(--ease); }
-  .service:hover svg { color: var(--framboise); }
-  .service h3 { font-family: var(--ff-serif); font-size: 1.4rem; font-weight: 500; margin: 0 0 8px; color: var(--ink); }
-  .service p { font-size: var(--fs-sm); margin: 0; color: var(--moss); }
+  .pdj__media img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+  .pdj__label {
+    font-family: var(--ff-sans);
+    font-size: var(--fs-xs); letter-spacing: .25em;
+    text-transform: uppercase; color: var(--moss);
+    margin: 0 0 14px;
+  }
+  .pdj__title {
+    font-family: var(--ff-serif);
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.8rem);
+    line-height: 1.1; font-weight: 500;
+    color: var(--ink); margin: 0 0 24px;
+  }
+  .pdj__title em { font-style: italic; color: var(--framboise); font-weight: 400; }
+  .pdj__body p { font-size: 1.02rem; color: var(--moss); }
+  .pdj__body p strong { color: var(--forest); font-weight: 500; }
 
-  /* ---------- 12. Avis (style Booking.com) ---------- */
+  /* ---------- Services (narratif + liste compacte) ---------- */
+  .services { padding: var(--section-y) 0; }
+  .services__title {
+    font-family: var(--ff-serif);
+    font-size: var(--fs-xl);
+    font-weight: 500; margin: 0 0 28px; line-height: 1.1;
+  }
+  .services__title em { font-style: italic; color: var(--framboise); font-weight: 400; }
+  .services__lede { font-size: 1.05rem; color: var(--moss); max-width: 640px; margin-bottom: 36px; }
+  .services__list {
+    display: grid; grid-template-columns: 1fr;
+    gap: 12px 32px;
+    border-top: 1px solid var(--sand);
+    padding-top: 24px;
+  }
+  .services__list li {
+    display: flex; gap: 14px; align-items: baseline;
+    font-size: var(--fs-sm); color: var(--ink);
+  }
+  .services__list li::before {
+    content: '—'; color: var(--framboise); flex: none; font-weight: 600;
+  }
+  .services__list em { font-style: normal; color: var(--bark); font-size: var(--fs-xs); margin-left: 8px; }
+
+  /* ---------- Avis (widget Booking — repris de V1) ---------- */
   .avis { padding: var(--section-y) 0; background: var(--sand); }
+  .avis__head { text-align: left; margin-bottom: 32px; }
+  .avis__eyebrow {
+    font-size: var(--fs-xs); letter-spacing: .25em; text-transform: uppercase;
+    color: var(--moss); margin: 0 0 10px; font-weight: 500;
+  }
+  .avis__title { font-family: var(--ff-serif); font-size: var(--fs-xl); margin: 0; font-weight: 500; line-height: 1.05; }
+  .avis__title em { font-style: italic; color: var(--framboise); font-weight: 400; }
 
-  /* Barre de score globale */
   .avis__score-bar {
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 20px;
@@ -349,7 +361,7 @@
     border: 1px solid rgba(0,53,128,.12);
     border-radius: 10px;
     padding: 24px 28px;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     box-shadow: 0 2px 10px rgba(0,0,0,.06);
   }
   .avis__score-main { display: flex; align-items: center; gap: 18px; }
@@ -358,35 +370,16 @@
     font-size: 2.1rem; font-weight: 700;
     font-family: var(--ff-sans); line-height: 1;
     padding: 14px 18px;
-    border-radius: 8px 8px 8px 0;
-    flex: none;
+    border-radius: 8px 8px 8px 0; flex: none;
   }
-  .avis__score-label {
-    font-weight: 700; font-size: 1.2rem; color: var(--ink);
-    margin: 0 0 4px; font-family: var(--ff-sans);
-  }
+  .avis__score-label { font-weight: 700; font-size: 1.2rem; color: var(--ink); margin: 0 0 4px; font-family: var(--ff-sans); }
   .avis__score-sub { font-size: var(--fs-sm); color: var(--bark); margin: 0; }
-
-  /* Badge "booking.com" */
-  .avis__booking-badge {
-    display: flex; flex-direction: column; align-items: flex-end; gap: 3px;
-    text-decoration: none; color: inherit;
-  }
+  .avis__booking-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; text-decoration: none; color: inherit; }
   .avis__booking-badge:hover .booking-logo { color: #0071c2; }
-  .booking-logo {
-    font-family: var(--ff-sans); font-size: 1.15rem; font-weight: 700;
-    color: #003580; letter-spacing: -.03em;
-    transition: color .2s var(--ease);
-  }
-  .booking-verified {
-    font-size: var(--fs-xs); color: var(--bark);
-    letter-spacing: .1em; text-transform: uppercase;
-  }
+  .booking-logo { font-family: var(--ff-sans); font-size: 1.15rem; font-weight: 700; color: #003580; letter-spacing: -.03em; transition: color .2s var(--ease); }
+  .booking-verified { font-size: var(--fs-xs); color: var(--bark); letter-spacing: .1em; text-transform: uppercase; }
 
-  /* Grille de cards */
   .avis__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-
-  /* Card — entièrement cliquable via <a> */
   .avis-card {
     background: #fff;
     border: 1px solid rgba(0,0,0,.09);
@@ -399,13 +392,9 @@
   }
   .avis-card:hover {
     box-shadow: 0 10px 28px rgba(0,53,128,.13);
-    transform: translateY(-3px);
-    border-color: rgba(0,113,194,.25);
+    transform: translateY(-3px); border-color: rgba(0,113,194,.25);
   }
-  .avis-card__top {
-    display: flex; align-items: flex-start;
-    justify-content: space-between; gap: 12px;
-  }
+  .avis-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
   .avis-card__reviewer { display: flex; align-items: center; gap: 12px; }
   .avis-card__avatar {
     width: 40px; height: 40px; border-radius: 50%;
@@ -418,108 +407,99 @@
   .avis-card__score {
     background: #003580; color: #fff;
     font-family: var(--ff-sans); font-weight: 700; font-size: .9rem;
-    padding: 5px 10px; border-radius: 6px 6px 6px 0;
-    flex: none; align-self: flex-start;
-    white-space: nowrap;
+    padding: 5px 10px; border-radius: 6px 6px 6px 0; flex: none; align-self: flex-start; white-space: nowrap;
   }
   .avis-card__stars { color: #f5a623; font-size: .85rem; letter-spacing: 2px; }
   .avis-card__text { font-size: var(--fs-sm); color: var(--ink); line-height: 1.65; margin: 0; font-style: italic; }
   .avis-card__date { font-size: var(--fs-xs); color: var(--bark); margin: 0; }
-
-  /* CTA global */
-  .avis__cta { margin-top: 40px; text-align: center; }
-  .btn--booking {
-    background: #0071c2; color: #fff; border-color: #0071c2; font-weight: 600;
-  }
+  .avis__cta { margin-top: 36px; text-align: center; }
+  .btn--booking { background: #0071c2; color: #fff; border-color: #0071c2; font-weight: 600; }
   .btn--booking:hover {
     background: #005ea2; border-color: #005ea2;
     box-shadow: 0 10px 24px rgba(0,113,194,.3); transform: translateY(-2px);
   }
 
-  /* ---------- 13. Séjour ---------- */
+  /* ---------- Hôtes (brève, après les avis) ---------- */
+  .hotes { padding: var(--section-y) 0; }
+  .hotes__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+  .hotes__media {
+    margin: 0; border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(26,36,32,.3);
+  }
+  .hotes__media img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .hotes__label {
+    font-size: var(--fs-xs); letter-spacing: .25em; text-transform: uppercase;
+    color: var(--moss); margin: 0 0 10px; font-weight: 500;
+  }
+  .hotes__name {
+    font-family: var(--ff-serif); font-size: clamp(1.8rem, 3vw + 1rem, 2.6rem);
+    font-style: italic; color: var(--ink); margin: 0 0 22px; font-weight: 500; line-height: 1;
+  }
+  .hotes__body p { font-size: 1.02rem; color: var(--moss); }
+
+  /* ---------- Séjour ---------- */
   .sejour {
     padding: var(--section-y) 0;
     background:
-      radial-gradient(50% 80% at 80% 20%, rgba(63,166,107,.18), transparent 70%),
-      radial-gradient(60% 80% at 0% 100%, rgba(192,57,91,.14), transparent 70%),
+      radial-gradient(50% 80% at 80% 20%, rgba(63,166,107,.16), transparent 70%),
+      radial-gradient(60% 80% at 0% 100%, rgba(192,57,91,.12), transparent 70%),
       var(--forest);
     color: var(--cream);
   }
-  .sejour__grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
-  .sejour__intro p { color: rgba(250,247,242,.78); }
-  .sejour .title-display { color: var(--cream); }
-  .sejour .title-display em { color: var(--coral); }
+  .sejour__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+  .sejour__title {
+    font-family: var(--ff-serif); font-size: var(--fs-xl);
+    color: var(--cream); margin: 0 0 24px; font-weight: 500; line-height: 1.05;
+  }
+  .sejour__title em { font-style: italic; color: var(--coral); font-weight: 400; }
+  .sejour__body p { color: rgba(250,247,242,.82); margin-bottom: 28px; }
   .sejour__card {
     background: rgba(250,247,242,.06);
     border: 1px solid rgba(250,247,242,.16);
     border-radius: var(--radius-lg);
-    padding: 36px 32px;
+    padding: 32px 28px;
     -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
   }
-  .sejour__card-label { font-size: var(--fs-xs); letter-spacing: .22em; text-transform: uppercase; color: var(--coral); margin-bottom: 16px; }
-  .sejour__card ul { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
-  .sejour__card li {
-    position: relative; padding-left: 22px;
-    color: rgba(250,247,242,.92); font-size: var(--fs-sm);
-  }
-  .sejour__card li::before {
-    content: ''; position: absolute; left: 0; top: 10px;
-    width: 8px; height: 8px; background: var(--emerald); border-radius: 50%;
-  }
-  .sejour__note { margin: 0; font-size: var(--fs-xs); font-style: italic; color: rgba(250,247,242,.6); border-top: 1px solid rgba(250,247,242,.16); padding-top: 16px; }
+  .sejour__card-label { font-size: var(--fs-xs); letter-spacing: .25em; text-transform: uppercase; color: var(--coral); margin: 0 0 16px; }
+  .sejour__card ul { display: flex; flex-direction: column; gap: 10px; margin: 0 0 16px; }
+  .sejour__card li { position: relative; padding-left: 20px; color: rgba(250,247,242,.92); font-size: var(--fs-sm); }
+  .sejour__card li::before { content: ''; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; background: var(--emerald); border-radius: 50%; }
+  .sejour__card .mg-line { margin-top: 12px; }
 
-  /* ---------- 14. Contact ---------- */
+  /* ---------- Contact ---------- */
   .contact { padding: var(--section-y) 0; }
-  .contact__grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
-  .contact__infos {
-    display: flex; flex-direction: column; gap: 18px;
-    margin-top: 32px; padding-top: 32px;
-    border-top: 1px solid var(--sand);
+  .contact__grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  .contact__title {
+    font-family: var(--ff-serif); font-size: var(--fs-xl);
+    font-weight: 500; margin: 0 0 24px; line-height: 1.05;
   }
+  .contact__title em { font-style: italic; color: var(--framboise); font-weight: 400; }
+  .contact__infos { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--sand); }
   .contact__infos li { display: flex; flex-direction: column; gap: 4px; }
-  .contact__lbl { font-size: var(--fs-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--bark); }
+  .contact__lbl { font-size: var(--fs-xs); letter-spacing: .25em; text-transform: uppercase; color: var(--bark); }
   .contact__infos a { color: var(--framboise); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
   .contact__infos a:hover { color: var(--ink); }
-  .contact__map {
-    border-radius: var(--radius-lg); overflow: hidden;
-    box-shadow: 0 30px 60px -30px rgba(26,36,32,.3);
-  }
   .map-static {
     background: var(--sand);
     border-radius: var(--radius-lg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 16px;
-    padding: 60px 40px;
-    text-align: center;
-    min-height: 340px;
+    gap: 14px; padding: 60px 40px; text-align: center; min-height: 320px;
   }
-  .map-static__pin { width: 56px; height: 72px; }
-  .map-static__label {
-    font-family: var(--ff-serif); font-size: 1.6rem;
-    color: var(--ink); margin: 0; font-weight: 500;
-  }
-  .map-static__coords {
-    font-size: var(--fs-xs); letter-spacing: .18em;
-    color: var(--bark); margin: 0; text-transform: uppercase;
-  }
-  .map-static__btn { margin-top: 8px; }
+  .map-static__pin { width: 52px; height: 68px; }
+  .map-static__label { font-family: var(--ff-serif); font-size: 1.5rem; color: var(--ink); margin: 0; font-weight: 500; }
+  .map-static__coords { font-size: var(--fs-xs); letter-spacing: .18em; color: var(--bark); margin: 0; text-transform: uppercase; }
 
-  /* ---------- 15. Outro ---------- */
-  .outro { padding: var(--section-y) 0; background: transparent; text-align: center; }
-  .outro__inner { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px; }
-  .outro__leaf { width: 64px; height: 64px; color: var(--emerald); opacity: .8; }
-  .outro__text { font-family: var(--ff-serif); font-style: italic; font-size: clamp(1.4rem, 2vw + 1rem, 2rem); color: var(--forest); line-height: 1.5; margin: 0; }
-
-  /* ---------- 16. Footer ---------- */
-  .footer { background: var(--ink); color: rgba(250,247,242,.72); padding: 50px 0 30px; }
+  /* ---------- Footer (compact, avec tricolore) ---------- */
+  .footer { background: var(--ink); color: rgba(250,247,242,.7); padding: 50px 0 28px; }
   .footer__inner { display: grid; grid-template-columns: 1fr; gap: 28px; text-align: center; }
-  .footer__brand .brand__name { font-family: var(--ff-serif); color: var(--cream); font-size: 1.6rem; display: block; }
-  .footer__brand p { margin-top: 6px; font-size: var(--fs-xs); letter-spacing: .15em; text-transform: uppercase; color: rgba(250,247,242,.45); }
-  .footer__links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; font-size: var(--fs-sm); }
+  .footer__brand .brand__name { font-family: var(--ff-serif); color: var(--cream); font-size: 1.5rem; display: block; }
+  .footer__brand p { margin: 8px 0; font-size: var(--fs-xs); letter-spacing: .15em; text-transform: uppercase; color: rgba(250,247,242,.45); }
+  .footer__brand .mg-line { margin: 12px 0 0; justify-content: center; }
+  .footer__links { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; font-size: var(--fs-sm); }
   .footer__links a:hover { color: var(--coral); }
   .footer__copy { margin: 0; font-size: var(--fs-xs); color: rgba(250,247,242,.4); }
 
-  /* ---------- 17. Lightbox ---------- */
+  /* ---------- Lightbox ---------- */
   .lightbox {
     position: fixed; inset: 0; z-index: 200;
     background: rgba(15,20,18,.92);
@@ -530,18 +510,15 @@
   }
   .lightbox.is-open { opacity: 1; pointer-events: auto; }
   .lightbox img {
-    max-width: 100%; max-height: 90vh;
-    object-fit: contain;
+    max-width: 100%; max-height: 90vh; object-fit: contain;
     border-radius: var(--radius-md);
     box-shadow: 0 40px 80px -20px rgba(0,0,0,.5);
-    transform: scale(.96);
-    transition: transform .4s var(--ease);
+    transform: scale(.96); transition: transform .4s var(--ease);
   }
   .lightbox.is-open img { transform: scale(1); }
   .lightbox__close {
     position: absolute; top: 18px; right: 22px;
-    width: 44px; height: 44px;
-    border-radius: 50%;
+    width: 44px; height: 44px; border-radius: 50%;
     border: 1px solid rgba(250,247,242,.4);
     background: transparent; color: var(--cream);
     font-size: 1.5rem; line-height: 1;
@@ -550,102 +527,69 @@
   }
   .lightbox__close:hover { background: rgba(250,247,242,.1); border-color: var(--cream); }
 
-  /* ---------- 18. Reveal ---------- */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); will-change: opacity, transform; }
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); will-change: opacity, transform; }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-  /* ---------- 18b. Palmes d'arrière-plan animées ---------- */
-  /* Conteneur fixe en arrière-plan : reste en place pendant le scroll */
-  .bg-palms {
-    position: fixed; inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-    color: var(--forest);
-  }
-  /* Wrapper qui porte la position et la rotation de base de la palme */
-  .palm {
-    position: absolute;
-    width: 55vmin; height: 55vmin;
-    opacity: .13;
-  }
-  /* Le SVG interne porte uniquement l'animation de balancement,
-     ainsi la rotation de base et l'animation ne se marchent pas dessus */
+  /* ---------- Palmes d'arrière-plan (2 seulement, plus discrètes) ---------- */
+  .bg-palms { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; color: var(--forest); }
+  .palm { position: absolute; opacity: .09; }
   .palm svg { width: 100%; height: 100%; transform-origin: 50% 95%; }
-
-  /* Positions des 4 palmes — chaque palme dépasse à moitié de l'écran */
-  .palm--1 { top: -10vmin;  right: -12vmin; transform: rotate(155deg); }
+  .palm--1 { top: -8vmin; right: -10vmin; width: 50vmin; height: 50vmin; transform: rotate(155deg); }
   .palm--1 svg { animation: sway-a 7s ease-in-out infinite; }
-
-  .palm--2 { bottom: -12vmin; left: -10vmin; width: 60vmin; height: 60vmin; transform: rotate(-25deg); }
+  .palm--2 { bottom: -12vmin; left: -10vmin; width: 55vmin; height: 55vmin; transform: rotate(-25deg); }
   .palm--2 svg { animation: sway-b 6.5s ease-in-out infinite; }
-
-  .palm--3 { top: 55vh; right: -18vmin; width: 45vmin; height: 45vmin; transform: rotate(125deg); }
-  .palm--3 svg { animation: sway-c 7.5s ease-in-out infinite; }
-
-  .palm--4 { top: 30vh; left: -14vmin; width: 40vmin; height: 40vmin; transform: rotate(-50deg); }
-  .palm--4 svg { animation: sway-d 6.8s ease-in-out infinite; }
-
-  /* Balancements désynchronisés — amplitude ~3-4° pour un "vent léger" */
   @keyframes sway-a { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
   @keyframes sway-b { 0%, 100% { transform: rotate(2deg); }  50% { transform: rotate(-4deg); } }
-  @keyframes sway-c { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(4deg); } }
-  @keyframes sway-d { 0%, 100% { transform: rotate(3deg); }  50% { transform: rotate(-3deg); } }
 
-  /* Le contenu principal passe au-dessus des palmes */
   main, .footer { position: relative; z-index: 1; }
 
   @media (prefers-reduced-motion: reduce) {
-    /* On désactive les animations dynamiques, mais on garde le balancement
-       des palmes (3° d'amplitude, sous le seuil WCAG) car il participe
-       à l'identité visuelle sans risque vestibulaire. */
-    .reveal, .reveal.is-visible, .hero__media img, .leaf-deco {
+    .reveal, .reveal.is-visible, .hero__media img {
       transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important;
     }
   }
 
-  /* ---------- 19. Responsive ---------- */
+  /* ---------- Responsive ---------- */
   @media (min-width: 640px) {
     .gallery { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .services__grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .services__list { grid-template-columns: repeat(2, 1fr); }
     .avis__grid { grid-template-columns: repeat(2, 1fr); }
     .footer__inner { grid-template-columns: 1fr auto 1fr; text-align: left; align-items: center; }
+    .footer__brand .mg-line { justify-content: flex-start; }
     .footer__copy { text-align: right; }
-    .footer__links { justify-content: center; }
   }
   @media (min-width: 900px) {
-    .lieu__grid { grid-template-columns: 1.05fr 1fr; gap: 80px; }
-    .hotes__grid { grid-template-columns: 1fr 1.1fr; gap: 80px; }
-    .gallery { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; }
+    .lieu__cols { grid-template-columns: 1.2fr 1fr; gap: 80px; }
+    .lieu__facts { grid-template-columns: 1fr; }
+    .pdj__inner { grid-template-columns: 1fr 1.1fr; gap: 80px; }
+    .hotes__grid { grid-template-columns: 1fr 1.2fr; gap: 70px; }
+    .gallery { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 240px; }
     .gallery__item img { aspect-ratio: auto; height: 100%; }
     .gallery__item--tall { grid-row: span 2; }
     .gallery__item--wide { grid-column: span 2; }
-    .services__grid { grid-template-columns: repeat(4, 1fr); }
     .avis__grid { grid-template-columns: repeat(3, 1fr); }
     .sejour__grid { grid-template-columns: 1fr 1fr; gap: 80px; }
-    .contact__grid { grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: stretch; }
+    .contact__grid { grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: stretch; }
   }
-  @media (min-width: 1100px) { .gallery { grid-auto-rows: 260px; gap: 18px; } }
+  @media (min-width: 1100px) { .gallery { grid-auto-rows: 280px; gap: 18px; } }
   @media (max-width: 899.98px) { .nav { display: none; } .burger { display: flex; } }
   @media (max-width: 480px) {
-    .hero { padding: 120px 20px 80px; }
-    .stats__num { font-size: 1.8rem; }
+    .hero { padding: 120px 20px 60px; min-height: 88vh; }
     .btn { padding: 12px 22px; font-size: var(--fs-xs); }
-    .quote { padding: 20px 22px; font-size: 1rem; }
   }
   </style>
 </head>
 
 <body>
 
-  <!-- ============================ PALMES D'ARRIÈRE-PLAN ============================ -->
-  <!-- 4 palmes SVG fixes en fond, balancement désynchronisé pour évoquer la brise tropicale -->
+  <!-- =========================================================
+       PALMES D'ARRIÈRE-PLAN (2 seulement, plus discrètes)
+       ========================================================= -->
   <div class="bg-palms" aria-hidden="true">
     <div class="palm palm--1">
       <svg viewBox="0 0 200 280">
-        <!-- Tige centrale courbe -->
         <path d="M100 280 Q97 200 93 130 Q90 60 86 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        <!-- Folioles côté gauche -->
         <path d="M99 245 Q70 232 32 215" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M97 218 Q62 198 22 178" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M95 188 Q58 170 18 152" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
@@ -653,8 +597,6 @@
         <path d="M91 128 Q60 116 28 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M89 98 Q65 90 40 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M88 70 Q72 64 55 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M87 42 Q78 38 65 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <!-- Folioles côté droit -->
         <path d="M101 245 Q132 232 168 215" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M103 218 Q138 198 178 178" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M105 188 Q142 170 182 152" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
@@ -662,10 +604,8 @@
         <path d="M109 128 Q140 116 172 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M111 98 Q135 90 160 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M112 70 Q128 64 145 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M113 42 Q122 38 135 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
       </svg>
     </div>
-
     <div class="palm palm--2">
       <svg viewBox="0 0 200 280">
         <path d="M100 280 Q97 200 93 130 Q90 60 86 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -676,7 +616,6 @@
         <path d="M91 128 Q60 116 28 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M89 98 Q65 90 40 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M88 70 Q72 64 55 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M87 42 Q78 38 65 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M101 245 Q132 232 168 215" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M103 218 Q138 198 178 178" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M105 188 Q142 170 182 152" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
@@ -684,61 +623,28 @@
         <path d="M109 128 Q140 116 172 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M111 98 Q135 90 160 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M112 70 Q128 64 145 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M113 42 Q122 38 135 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>
-    </div>
-
-    <div class="palm palm--3">
-      <svg viewBox="0 0 200 280">
-        <path d="M100 280 Q97 200 93 130 Q90 60 86 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M99 245 Q70 232 32 215" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M97 218 Q62 198 22 178" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M95 188 Q58 170 18 152" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M93 158 Q58 142 22 130" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M91 128 Q60 116 28 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M89 98 Q65 90 40 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M88 70 Q72 64 55 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M87 42 Q78 38 65 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M101 245 Q132 232 168 215" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M103 218 Q138 198 178 178" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M105 188 Q142 170 182 152" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M107 158 Q142 142 178 130" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M109 128 Q140 116 172 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M111 98 Q135 90 160 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M112 70 Q128 64 145 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M113 42 Q122 38 135 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-      </svg>
-    </div>
-
-    <div class="palm palm--4">
-      <svg viewBox="0 0 200 280">
-        <path d="M100 280 Q97 200 93 130 Q90 60 86 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M99 245 Q70 232 32 215" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M97 218 Q62 198 22 178" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M95 188 Q58 170 18 152" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M93 158 Q58 142 22 130" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M91 128 Q60 116 28 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M89 98 Q65 90 40 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M88 70 Q72 64 55 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M87 42 Q78 38 65 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M101 245 Q132 232 168 215" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M103 218 Q138 198 178 178" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M105 188 Q142 170 182 152" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M107 158 Q142 142 178 130" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M109 128 Q140 116 172 108" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M111 98 Q135 90 160 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M112 70 Q128 64 145 64" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M113 42 Q122 38 135 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
       </svg>
     </div>
   </div>
 
-  <!-- ============================ NAVIGATION ============================ -->
+  <!-- =========================================================
+       NAVIGATION
+       Mark = silhouette de Ravinala (arbre du voyageur).
+       Discret, sans légende. Ceux qui connaissent, reconnaîtront.
+       ========================================================= -->
   <header class="site-header" data-header>
     <a href="#top" class="brand">
       <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M16 2C9 4 4 10 4 18c0 6 4 11 12 12 8-1 12-6 12-12 0-8-5-14-12-16Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
-        <path d="M16 4v26M9 12c3 1 5 3 7 6M23 12c-3 1-5 3-7 6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        <!-- Tronc -->
+        <path d="M16 30 L16 19" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        <!-- Éventail de feuilles -->
+        <path d="M16 19 Q11 16 4 12" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M16 19 Q12 14 8 6"   stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M16 19 L13 3"         stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M16 19 L16 2"         stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M16 19 L19 3"         stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M16 19 Q20 14 24 6"   stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <path d="M16 19 Q21 16 28 12"  stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
       </svg>
       <span class="brand__name">Chez Framboise</span>
     </a>
@@ -747,7 +653,7 @@
       <ul class="nav__list">
         <li><a href="#lieu">Le lieu</a></li>
         <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="#pdj">Petit-déjeuner</a></li>
         <li><a href="#sejour">Séjour</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -763,7 +669,7 @@
     <ul>
       <li><a href="#lieu">Le lieu</a></li>
       <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="#pdj">Petit-déjeuner</a></li>
       <li><a href="#sejour">Séjour</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -771,152 +677,185 @@
 
   <main id="top">
 
-    <!-- HERO -->
+    <!-- =========================================================
+         HERO — sans vague, sans eyebrow, titre engagé
+         ========================================================= -->
     <section class="hero">
       <div class="hero__media">
-        <img src="images/1.jpg" alt="Panorama du cirque de Salazie, montagnes vertes et brume tropicale" />
+        <img src="images/1.jpg" alt="Le cirque de Salazie sous la brume du matin" />
         <div class="hero__veil" aria-hidden="true"></div>
       </div>
-      <div class="hero__content">
-        <p class="eyebrow eyebrow--light reveal">Chambre d'hôtes · Salazie · La Réunion</p>
+      <div class="hero__content container">
         <h1 class="hero__title reveal">
-          Au creux de la <em>forêt</em><br/>
-          un refuge nommé <span class="accent">Framboise</span>.
+          Une maison à Salazie,<br/>
+          à quatre kilomètres du Cirque.
         </h1>
+        <p class="hero__sub reveal">
+          Chambre d'hôtes ouverte par Françoise et Fred depuis plus de cinq ans.
+          Plus de deux cents voyageurs accueillis. Note 9,4 sur Booking.
+        </p>
         <div class="hero__cta reveal">
-          <a href="#sejour" class="btn btn--solid">Réserver un séjour</a>
-          <a href="#lieu" class="btn btn--text">Découvrir le lieu →</a>
+          <a href="https://www.booking.com/hotel/re/chez-framboise.fr.html"
+             target="_blank" rel="noopener" class="btn btn--accent">Vérifier les disponibilités</a>
+          <a href="#lieu" class="btn btn--light">En savoir plus</a>
         </div>
       </div>
-      <svg class="hero__wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,60 C240,90 480,20 720,40 C960,60 1200,90 1440,40 L1440,90 L0,90 Z" fill="var(--cream)"/>
-      </svg>
     </section>
 
-    <!-- LIEU -->
+    <!-- =========================================================
+         INTRO ÉDITORIALE — un seul paragraphe, gros corps,
+         casse le pattern « eyebrow + titre + paragraphe »
+         ========================================================= -->
+    <section class="editorial">
+      <div class="container container--narrow">
+        <p class="reveal">
+          Il pleut presque tous les jours à Salazie. C'est ce qui rend la forêt si dense,
+          les cascades si bruyantes, et la maison si confortable quand on rentre des sentiers.
+        </p>
+        <p class="reveal">
+          <span class="accent">Chez Framboise</span> n'essaie pas d'être autre chose qu'elle-même :
+          une chambre d'hôtes tenue à deux, dans un cirque qu'on n'oublie pas.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LE LIEU — photo plein cadre en haut, texte 2 colonnes
+         ========================================================= -->
     <section id="lieu" class="lieu">
-      <div class="container lieu__grid">
-        <div class="lieu__text reveal">
-          <p class="eyebrow">Bienvenue</p>
-          <h2 class="title-display">
-            Une maison <em>simple et vivante</em>,<br/>
-            entre le cirque et la mer.
-          </h2>
-          <p>
-            À Salazie, la pluie chuchote presque tous les jours et la forêt s'épaissit
-            à perte de vue. C'est là, à quelques minutes du Cirque, que Françoise et
-            Fred ouvrent leur maison aux voyageurs en quête de calme et d'authenticité.
-          </p>
-          <p>
-            Chambres lumineuses, jardin créole, terrasse pour le petit-déjeuner, et
-            cette vue sur la montagne qui change d'humeur à chaque heure du jour —
-            <strong>Chez Framboise</strong> est un point de départ pour la randonnée
-            et un point d'ancrage pour le repos.
-          </p>
-          <ul class="stats" role="list">
-            <li><span class="stats__num">9,4<span>/10</span></span><span class="stats__lbl">Note Booking.com</span></li>
-            <li><span class="stats__num">200<span>+</span></span><span class="stats__lbl">Voyageurs accueillis</span></li>
-            <li><span class="stats__num">5<span>&nbsp;ans</span></span><span class="stats__lbl">D'hospitalité</span></li>
-          </ul>
-        </div>
-        <figure class="lieu__media reveal">
-          <img src="images/ext%202.jpg" alt="Jardin tropical de Chez Framboise avec palmier et végétation dense" />
+      <div class="container">
+        <figure class="lieu__photo reveal">
+          <img src="images/ext%202.jpg" alt="Jardin créole de Chez Framboise, palmier et végétation dense" />
         </figure>
+        <div class="lieu__cols">
+          <div class="reveal">
+            <h2 class="lieu__title">
+              Le cirque<br/>
+              pour <em>voisin direct</em>.
+            </h2>
+          </div>
+          <div class="lieu__body reveal">
+            <p>
+              La maison est à quatre kilomètres du Cirque de Salazie — assez loin pour
+              dormir dans le calme, assez près pour partir en randonnée à 8 h du matin
+              et rentrer pour le déjeuner.
+            </p>
+            <p>
+              Autour : un jardin créole, une véranda, une serre d'orchidées, et la
+              montagne qui change d'humeur à chaque heure. À l'intérieur :
+              <strong>des chambres simples et soignées</strong>, un salon ouvert,
+              et un Wi-Fi qui marche dans toute la maison.
+            </p>
+            <ul class="lieu__facts" role="list">
+              <li><dt>Note</dt><dd><strong>9,4</strong> sur 10 — Booking</dd></li>
+              <li><dt>Voyageurs</dt><dd><strong>+ 200</strong> accueillis en cinq ans</dd></li>
+              <li><dt>Distance</dt><dd><strong>4,4 km</strong> du Cirque de Salazie</dd></li>
+              <li><dt>Trajet</dt><dd><strong>45 min</strong> depuis Saint-Denis</dd></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- GALERIE -->
+    <!-- =========================================================
+         GALERIE
+         ========================================================= -->
     <section id="galerie" class="galerie">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="eyebrow">Découvrir</p>
-          <h2 class="title-display">Le gîte en <em>images</em></h2>
-          <p class="section-head__lead">Cliquez sur une image pour l'agrandir.</p>
+        <header class="galerie__head reveal">
+          <h2 class="galerie__title">Le gîte en <em>images</em></h2>
+          <p class="galerie__hint">Cliquez pour agrandir.</p>
         </header>
         <div class="gallery" data-gallery>
           <figure class="gallery__item gallery__item--tall reveal">
-            <img src="images/chambre%201.jpg" alt="Chambre lumineuse avec lit double et fenêtre ouverte" loading="lazy"/>
+            <img src="images/chambre%201.jpg" alt="Chambre carrelée avec vue sur le jardin" loading="lazy"/>
           </figure>
           <figure class="gallery__item reveal">
-            <img src="images/salon.jpg" alt="Salon-véranda spacieux avec rideaux à motifs tropicaux" loading="lazy"/>
+            <img src="images/salon.jpg" alt="Salon-véranda spacieux" loading="lazy"/>
           </figure>
           <figure class="gallery__item reveal">
-            <img src="images/chambre%202.jpg" alt="Seconde chambre avec lambris bois et lit double" loading="lazy"/>
+            <img src="images/chambre%202.jpg" alt="Chambre lambris bois" loading="lazy"/>
           </figure>
           <figure class="gallery__item gallery__item--wide reveal">
-            <img src="images/ext%201.jpg" alt="Jardin créole avec banc en bois et arbustes tropicaux" loading="lazy"/>
+            <img src="images/ext%201.jpg" alt="Jardin créole avec banc en bois" loading="lazy"/>
           </figure>
           <figure class="gallery__item reveal">
-            <img src="images/serre.jpg" alt="Serre abritant fougères et orchidées" loading="lazy"/>
+            <img src="images/serre.jpg" alt="Serre aux orchidées" loading="lazy"/>
           </figure>
           <figure class="gallery__item gallery__item--tall reveal">
-            <img src="images/22.jpg" alt="Cascade descendant de la falaise dans la forêt tropicale" loading="lazy"/>
+            <img src="images/22.jpg" alt="Cascade verticale dans la forêt" loading="lazy"/>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="services">
+    <!-- =========================================================
+         PETIT-DÉJEUNER — section dédiée, modeste, focalisée
+         ========================================================= -->
+    <section id="pdj" class="pdj">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="eyebrow">Équipements &amp; services</p>
-          <h2 class="title-display">Tout ce qu'il faut, <em>rien de superflu</em></h2>
-        </header>
-        <ul class="services__grid" role="list">
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13c4-4 10-4 14 0M8 16c2-2 6-2 8 0M11 19a1.5 1.5 0 1 0 2 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <h3>Wi-Fi gratuit</h3>
-            <p>Connexion stable dans toute la maison, pour partager vos clichés à la volée.</p>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6 8 6v9a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <h3>Parking privé</h3>
-            <p>Stationnement gratuit et sécurisé sur la propriété, à l'ombre des arbres.</p>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18h14M7 18V9a5 5 0 0 1 10 0v9M10 6l2-3 2 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3>Petit-déjeuner</h3>
-            <p>Continental généreux, fruits du jardin et confitures maison selon la saison.</p>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 14h6l-1 7h-4z M6 21l3-7 3 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <h3>Accès PMR</h3>
-            <p>Équipements adaptés aux personnes à mobilité réduite, sur demande à la réservation.</p>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M6 18V8h12v10M9 18v-6h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-            <h3>Terrasse &amp; jardin</h3>
-            <p>Un coin pour lire, prendre un thé, écouter la pluie tomber sur les feuilles.</p>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14c0-5 4-9 9-9 1 5-3 9-9 9zM4 14c0 3 3 6 7 6 0-3-3-6-7-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <h3>Espace non-fumeur</h3>
-            <p>Toute la maison est non-fumeur. Un coin extérieur reste disponible.</p>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2 6h6l-5 4 2 7-5-4-5 4 2-7-5-4h6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-            <h3>Conseils sur-mesure</h3>
-            <p>Vos hôtes connaissent chaque sentier, chaque table créole de la région.</p>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c3-6 9-9 18-9M6 21c2-4 6-7 12-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <h3>Randonnée à proximité</h3>
-            <p>À 4,4 km du Cirque de Salazie, point de départ idéal pour les sentiers.</p>
-          </li>
+        <div class="pdj__inner">
+          <figure class="pdj__media reveal">
+            <img src="images/salon.jpg" alt="La véranda où le petit-déjeuner est servi" />
+          </figure>
+          <div class="reveal">
+            <p class="pdj__label">Le petit-déjeuner</p>
+            <h2 class="pdj__title">
+              Servi en terrasse,<br/>
+              dans la <em>véranda</em> les jours de pluie.
+            </h2>
+            <div class="pdj__body">
+              <p>
+                C'est Françoise qui le prépare. <strong>Confitures maison</strong>
+                selon la saison, fruits frais, viennoiseries, jus,
+                café et thé à volonté.
+              </p>
+              <p>
+                Compris dans toutes les nuitées. Servi entre 7 h et 9 h 30,
+                ou plus tôt sur demande quand on part en randonnée à l'aube.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SERVICES — narratif + liste compacte (plus de cards)
+         ========================================================= -->
+    <section class="services">
+      <div class="container container--narrow">
+        <div class="reveal">
+          <h2 class="services__title">Le nécessaire,<br/><em>sans surplus</em>.</h2>
+          <p class="services__lede">
+            On a pris le parti de bien faire quelques choses plutôt que d'en proposer
+            beaucoup. Voici ce que vous trouverez sur place — rien de plus,
+            rien de moins.
+          </p>
+        </div>
+        <ul class="services__list reveal" role="list">
+          <li>Wi-Fi gratuit <em>dans toute la maison</em></li>
+          <li>Parking privé <em>sur la propriété</em></li>
+          <li>Petit-déjeuner inclus <em>chaque matin</em></li>
+          <li>Terrasse &amp; jardin <em>accessibles à tous</em></li>
+          <li>Accès PMR <em>sur demande</em></li>
+          <li>Maison non-fumeur <em>extérieur prévu</em></li>
+          <li>Conseils randonnée <em>donnés en cuisine</em></li>
+          <li>À 4,4 km du Cirque <em>point de départ idéal</em></li>
         </ul>
       </div>
     </section>
 
-    <!-- AVIS -->
+    <!-- =========================================================
+         AVIS — widget façon Booking (repris de V1, ça marchait)
+         ========================================================= -->
     <section class="avis">
       <div class="container">
-        <header class="section-head reveal">
-          <p class="eyebrow">Avis voyageurs</p>
-          <h2 class="title-display">Ce qu'ils ont <em>vécu</em></h2>
+        <header class="avis__head reveal">
+          <p class="avis__eyebrow">Avis voyageurs</p>
+          <h2 class="avis__title">Ce qu'ils ont <em>vécu</em></h2>
         </header>
 
-        <!-- Score global façon Booking.com -->
         <div class="avis__score-bar reveal">
           <div class="avis__score-main">
             <div class="avis__score-badge">9,4</div>
@@ -933,7 +872,6 @@
           </a>
         </div>
 
-        <!-- Cards — chacune est un lien cliquable vers Booking -->
         <div class="avis__grid">
           <a href="https://www.booking.com/hotel/re/chez-framboise.fr.html"
              target="_blank" rel="noopener" class="avis-card reveal">
@@ -965,7 +903,7 @@
               <span class="avis-card__score">10</span>
             </div>
             <div class="avis-card__stars" aria-label="Note 10 sur 10">★★★★★</div>
-            <p class="avis-card__text">« Petit déjeuner et table d'hôte extras ! Très bon séjour, hôtes attentifs qui prennent le temps de répondre à nos questions et à donner des conseils. Tout était parfait. »</p>
+            <p class="avis-card__text">« Petit déjeuner extra ! Très bon séjour, hôtes attentifs qui prennent le temps de répondre à nos questions et à donner des conseils. Tout était parfait. »</p>
             <p class="avis-card__date">Février 2026</p>
           </a>
 
@@ -996,155 +934,155 @@
       </div>
     </section>
 
-    <!-- HÔTES -->
+    <!-- =========================================================
+         HÔTES — bref, modeste, après les avis
+         ========================================================= -->
     <section class="hotes">
-      <div class="container hotes__grid">
-        <figure class="hotes__media reveal">
-          <img src="images/21.jpg" alt="Portrait de Françoise et Fred, les hôtes, dans leur jardin tropical" />
-        </figure>
-        <div class="hotes__text reveal">
-          <p class="eyebrow">Vos hôtes</p>
-          <h2 class="title-display"><em>Françoise &amp; Fred</em></h2>
-          <p>
-            Ils accueillent, ils conseillent, ils racontent. Une cuisine du jardin,
-            des sentiers gardés en mémoire, et cette attention discrète qui
-            transforme une chambre en escale.
-          </p>
-          <blockquote class="quote">
-            « L'accueil chaleureux et discret de Françoise et Fred,
-            la propreté du lieu, l'aménagement du logement et le petit-déjeuner
-            fabuleux. »
-            <cite>— Céline, Booking.com</cite>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- SÉJOUR -->
-    <section id="sejour" class="sejour">
-      <div class="container sejour__grid">
-        <div class="sejour__intro reveal">
-          <p class="eyebrow eyebrow--light">Séjour &amp; tarifs</p>
-          <h2 class="title-display">Un séjour, <em>tout compris</em>.</h2>
-          <p>
-            Nos chambres se réservent à la nuit, petit-déjeuner inclus.
-            Les disponibilités sont mises à jour en temps réel sur Booking.com —
-            réservation immédiate, paiement sécurisé.
-          </p>
-          <a href="https://www.booking.com/hotel/re/chez-framboise.fr.html"
-             target="_blank" rel="noopener" class="btn btn--solid btn--accent">
-            Vérifier les disponibilités →
-          </a>
-        </div>
-        <div class="sejour__card reveal">
-          <p class="sejour__card-label">Inclus à chaque séjour</p>
-          <ul>
-            <li>Une chambre privative avec literie soignée</li>
-            <li>Petit-déjeuner continental servi en terrasse</li>
-            <li>Accès Wi-Fi gratuit dans toute la maison</li>
-            <li>Parking privé sur la propriété</li>
-            <li>Conseils randonnée &amp; itinéraires</li>
-          </ul>
-          <p class="sejour__note">
-            Table d'hôtes ponctuellement sur demande — pensez à réserver à l'avance.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div class="container contact__grid">
-        <div class="contact__text reveal">
-          <p class="eyebrow">Nous trouver</p>
-          <h2 class="title-display">À <em>Salazie</em>,<br/>au creux du vert.</h2>
-          <p>
-            La maison se rejoint en voiture depuis Saint-Denis en environ 45 minutes.
-            Pour toute question avant votre arrivée, vous pouvez aussi nous écrire
-            via la plateforme Booking.com.
-          </p>
-          <ul class="contact__infos" role="list">
-            <li><span class="contact__lbl">Adresse</span><span>Salazie, La Réunion (97433)</span></li>
-            <li><span class="contact__lbl">Réservation</span>
-              <a href="https://www.booking.com/hotel/re/chez-framboise.fr.html" target="_blank" rel="noopener">Booking.com →</a>
-            </li>
-            <li><span class="contact__lbl">Coordonnées GPS</span><span>−21,047374, 55,529125</span></li>
-          </ul>
-        </div>
-        <div class="contact__map reveal">
-          <div class="map-static">
-            <svg class="map-static__pin" viewBox="0 0 48 64" aria-hidden="true">
-              <path d="M24 2C13.5 2 5 10.5 5 21c0 14 19 41 19 41s19-27 19-41C43 10.5 34.5 2 24 2Z" fill="var(--framboise)" opacity=".15" stroke="var(--framboise)" stroke-width="2"/>
-              <circle cx="24" cy="21" r="7" fill="var(--framboise)"/>
-            </svg>
-            <p class="map-static__label">Salazie, La Réunion</p>
-            <p class="map-static__coords">−21,047374 · 55,529125</p>
-            <a href="https://maps.google.com/?q=-21.047373618236087,55.52912509439723"
-               target="_blank" rel="noopener" class="btn btn--solid map-static__btn">
-              Ouvrir dans Google Maps →
-            </a>
+      <div class="container">
+        <div class="hotes__grid">
+          <figure class="hotes__media reveal">
+            <img src="images/21.jpg" alt="Françoise et Fred dans leur jardin" />
+          </figure>
+          <div class="reveal">
+            <p class="hotes__label">Vos hôtes</p>
+            <h2 class="hotes__name">Françoise &amp; Fred.</h2>
+            <div class="hotes__body">
+              <p>
+                Cinq ans que la maison reçoit. Plus de deux cents voyageurs,
+                neuf et demi de moyenne — autant dire que le métier est rentré.
+              </p>
+              <p>
+                C'est un petit lieu, ce qui veut dire qu'on a le temps de discuter
+                quand vous arrivez, de partager une recommandation, ou de noter sur
+                un papier le nom du restaurant à essayer ce soir.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- OUTRO -->
-    <section class="outro">
-      <div class="container outro__inner reveal">
-        <svg class="outro__leaf" viewBox="0 0 100 100" aria-hidden="true">
-          <path d="M50 5 C20 30 20 70 50 95 C80 70 80 30 50 5 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-          <path d="M50 5 L50 95" stroke="currentColor" stroke-width="0.8"/>
-          <path d="M50 30 C40 35 35 45 35 55 M50 55 C60 60 65 70 65 80" fill="none" stroke="currentColor" stroke-width="0.8"/>
-        </svg>
-        <p class="outro__text">
-          Au plaisir de vous accueillir bientôt chez nous.
-        </p>
+    <!-- =========================================================
+         SÉJOUR
+         ========================================================= -->
+    <section id="sejour" class="sejour">
+      <div class="container">
+        <div class="sejour__grid">
+          <div class="reveal">
+            <h2 class="sejour__title">
+              Réserver, <em>simplement</em>.
+            </h2>
+            <div class="sejour__body">
+              <p>
+                Les disponibilités et les tarifs sont à jour en permanence sur Booking.com.
+                Réservation immédiate, paiement sécurisé, et après la confirmation
+                vous pourrez échanger directement avec Françoise et Fred via la
+                messagerie de la plateforme.
+              </p>
+            </div>
+            <a href="https://www.booking.com/hotel/re/chez-framboise.fr.html"
+               target="_blank" rel="noopener" class="btn btn--accent">
+              Voir les disponibilités →
+            </a>
+          </div>
+          <div class="sejour__card reveal">
+            <p class="sejour__card-label">Inclus dans chaque nuit</p>
+            <ul>
+              <li>Chambre privative avec literie soignée</li>
+              <li>Petit-déjeuner servi en terrasse ou en véranda</li>
+              <li>Wi-Fi gratuit dans toute la maison</li>
+              <li>Parking privé sur la propriété</li>
+              <li>Conseils randonnée et itinéraires sur demande</li>
+            </ul>
+            <div class="mg-line mg-line--light" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACT
+         ========================================================= -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact__grid">
+          <div class="reveal">
+            <h2 class="contact__title">À <em>Salazie</em>,<br/>au creux du vert.</h2>
+            <p>
+              La maison se rejoint en voiture depuis Saint-Denis en environ 45 minutes.
+              Pour toute question avant l'arrivée, vous pouvez aussi nous écrire via
+              la messagerie Booking.com.
+            </p>
+            <ul class="contact__infos" role="list">
+              <li><span class="contact__lbl">Adresse</span><span>Salazie, La Réunion (97433)</span></li>
+              <li><span class="contact__lbl">Réservation</span>
+                <a href="https://www.booking.com/hotel/re/chez-framboise.fr.html" target="_blank" rel="noopener">Booking.com →</a>
+              </li>
+              <li><span class="contact__lbl">Coordonnées GPS</span><span>−21,047374, 55,529125</span></li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <div class="map-static">
+              <svg class="map-static__pin" viewBox="0 0 48 64" aria-hidden="true">
+                <path d="M24 2C13.5 2 5 10.5 5 21c0 14 19 41 19 41s19-27 19-41C43 10.5 34.5 2 24 2Z" fill="var(--framboise)" opacity=".15" stroke="var(--framboise)" stroke-width="2"/>
+                <circle cx="24" cy="21" r="7" fill="var(--framboise)"/>
+              </svg>
+              <p class="map-static__label">Salazie, La Réunion</p>
+              <p class="map-static__coords">−21,047374 · 55,529125</p>
+              <a href="https://maps.google.com/?q=-21.047373618236087,55.52912509439723"
+                 target="_blank" rel="noopener" class="btn btn--solid">
+                Ouvrir dans Google Maps →
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- =========================================================
+       FOOTER — compact, tricolore en signature
+       (plus d'outro avec feuille centrée et phrase en italique)
+       ========================================================= -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
         <span class="brand__name">Chez Framboise</span>
         <p>Chambre d'hôtes · Salazie, La Réunion</p>
+        <div class="mg-line mg-line--lg mg-line--light" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
       </div>
       <ul class="footer__links">
         <li><a href="#lieu">Le lieu</a></li>
         <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="#pdj">Petit-déjeuner</a></li>
         <li><a href="#sejour">Réserver</a></li>
       </ul>
       <p class="footer__copy">© 2026 · Chez Framboise · Tous droits réservés</p>
     </div>
   </footer>
 
+  <!-- Lightbox -->
   <div class="lightbox" data-lightbox aria-hidden="true" role="dialog" aria-label="Image agrandie">
     <button class="lightbox__close" aria-label="Fermer" data-lightbox-close>×</button>
     <img alt="" />
   </div>
 
   <script>
-  /* =========================================================
-     Chez Framboise — interactions
-     - Header solide au scroll
-     - Burger mobile
-     - Reveal au scroll (IntersectionObserver)
-     - Hero : zoom-out subtil après chargement
-     - Lightbox galerie
-     ========================================================= */
   (() => {
     'use strict';
 
-    /* 1. Header au scroll */
+    /* Header au scroll */
     const header = document.querySelector('[data-header]');
     const onScroll = () => header && header.classList.toggle('is-scrolled', window.scrollY > 40);
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    /* 2. Menu burger */
+    /* Menu burger */
     const burger = document.querySelector('[data-burger]');
     const mobileMenu = document.querySelector('[data-mobile-menu]');
     const toggleMenu = (open) => {
@@ -1159,17 +1097,17 @@
     burger?.addEventListener('click', () => toggleMenu());
     mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    /* 3. Hero ready */
+    /* Hero ready */
     const hero = document.querySelector('.hero');
     requestAnimationFrame(() => hero?.classList.add('is-ready'));
 
-    /* 4. Reveal au scroll */
+    /* Reveal au scroll */
     const reveals = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach((entry, i) => {
           if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('is-visible'), Math.min(i * 60, 240));
+            setTimeout(() => entry.target.classList.add('is-visible'), Math.min(i * 50, 200));
             io.unobserve(entry.target);
           }
         });
@@ -1179,7 +1117,7 @@
       reveals.forEach(el => el.classList.add('is-visible'));
     }
 
-    /* 5. Lightbox */
+    /* Lightbox */
     const lightbox = document.querySelector('[data-lightbox]');
     const lightboxImg = lightbox?.querySelector('img');
     const closeBtn = lightbox?.querySelector('[data-lightbox-close]');
